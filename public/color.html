@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Game - Nerd Corner</title>
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="icon" href="assets/icon.png" sizes="32x32" type="image/png" />
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Color Game</h1>
+            <div class="score-container">
+                <span>Score: </span>
+                <span id="score">0</span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="target-color" id="targetColor">
+                <span id="targetHex">?</span>
+            </div>
+
+            <div class="color-input">
+                <input type="text" id="hexInput" placeholder="#RRGGBB" maxlength="7">
+            </div>
+
+            <div class="feedback" id="feedback">
+                <div class="similarity">
+                    <span>Similarité: </span>
+                    <span id="similarity">0%</span>
+                </div>
+                <div class="points">
+                    <span>Points: </span>
+                    <span id="points">0</span>
+                </div>
+            </div>
+
+            <button id="submitBtn" class="btn">Valider</button>
+            <button id="nextBtn" class="btn" style="display: none;">Prochaine couleur</button>
+        </div>
+
+        <div class="instructions">
+            <h2>Comment jouer ?</h2>
+            <p>1. Observez la couleur cible affichée</p>
+            <p>2. Entrez le code hexadécimal de la couleur que vous pensez être la plus proche</p>
+            <p>3. Plus votre couleur est proche de la cible, plus vous gagnez de points !</p>
+            <p class="note">Format: #RRGGBB (ex: #FF0000 pour le rouge)</p>
+        </div>
+    </div>
+
+    <script src="/js/utils/api.js"></script>
+    <script src="/js/color/color.js"></script>
+</body>
+</html> 
