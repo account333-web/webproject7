@@ -106,6 +106,10 @@ export function loadCountries() {
         li.appendChild(card);
         track.appendChild(li);
       });
+
+      // Signaler que la liste des pays est prête pour mettre 
+      // à jour le carrousel (nombre d'éléments, boutons, etc.)
+      document.dispatchEvent(new Event('countriesUpdated'));
     })
     .catch(err => {
       console.error('Erreur en récupérant les pays :', err);
