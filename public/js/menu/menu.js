@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loginEl   = document.getElementById('login-link');
   const signupEl  = document.getElementById('signup-link');
   const dashEl    = document.getElementById('dashboard-link');
+  const profileEl = document.getElementById('profile-link');
   const logoutEl  = document.getElementById('logout-link');
 
   const container = document.getElementById('player-container');
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loginEl.style.display  = 'none';
     signupEl.style.display = 'none';
     dashEl.style.display   = 'inline-block';
+    profileEl.style.display= 'inline-block';
     logoutEl.style.display = 'inline-block';
     logoutEl.addEventListener('click', e => {
       e.preventDefault();
@@ -106,6 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loginEl.style.display  = '';
     signupEl.style.display = '';
     dashEl.style.display   = 'none';
+    profileEl.style.display= 'none';
     logoutEl.style.display = 'none';
   }
 
@@ -114,4 +117,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     const link = card.dataset.link;
     if (link) card.addEventListener('click', () => window.location.href = link);
   });
+  if (window.i18n) window.i18n.apply();
 });
