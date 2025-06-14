@@ -4,7 +4,6 @@ export const WINDOW_MS      = 30 * 60 * 1000; // 30 minutes
 export const wallet         = document.getElementById('wallet');
 export const balanceText    = document.getElementById('balance-text');
 export const balanceValue   = document.getElementById('balance-value');
-export const blackTrigger   = document.getElementById('blackTrigger');
 export const countryText    = document.getElementById('country-text');
 export const companyText    = document.getElementById('company-text');
 export const myCountryFlag  = document.getElementById('myCountryFlag');

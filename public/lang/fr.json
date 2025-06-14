@@ -1,0 +1,16 @@
+{
+  "login": "Connexion",
+  "signup": "Créer un compte",
+  "dashboard": "Tableau de bord",
+  "profile": "Profil",
+  "logout": "Déconnexion",
+  "joinTitle": "Rejoignez-nous !",
+  "joinInfo": "Connectez-vous pour accéder à toutes les fonctionnalités !",
+  "joinBtn": "Connexion",
+  "snake": "Snake",
+  "colorGame": "Color Game",
+  "pong": "Pong",
+  "rank": "Rang",
+  "optionFr": "Français",
+  "optionEn": "Anglais"
+}

@@ -71,7 +71,7 @@ router.get('/info', checkAuth, async (req, res) => {
       balance:    roundedBal,
       country:    row.country   || 'Sans abris',
       company:    row.company   || 'Au chômage',
-      avatar_url: row.avatar_url || '/avatars/1.png'
+      avatar_url: row.avatar_url || '/avatars/default.png'
     });
   } catch (err) {
     console.error('User info error:', err);
