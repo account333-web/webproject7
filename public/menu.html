@@ -40,20 +40,17 @@
   <main>
     <!-- Conteneur unique : on y injecte tpl-logged ou tpl-guest et on lui ajoute la classe appropriée -->
     <div id="player-container" class="guest"></div>
-
     <template id="tpl-logged">
       <h1 class="logged-title"><span class="username"></span></h1>
       <div class="logged-balance"><span class="balance"></span></div>
       <p class="logged-info"><span class="badges"></span></p>
       <p class="logged-info"><span data-i18n="rank"></span> <span class="rank"></span></p>
     </template>
-
     <template id="tpl-guest">
       <h1 class="guest-title" data-i18n="joinTitle">Rejoignez-nous !</h1>
       <p class="guest-info" data-i18n="joinInfo">Connectez-vous pour accéder à toutes les fonctionnalités !</p>
       <a class="btn join-btn" href="/index.html" data-i18n="joinBtn">Connexion</a>
     </template>
-
     <hr />
 
     <div class="cards">

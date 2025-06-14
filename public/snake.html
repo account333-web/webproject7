@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/icon.png" sizes="32x32" type="image/png">
   <title>Snake Glitchy</title>
+  <script src="/js/utils/i18n.js" defer></script>
   <style>
     /* Styles de base */
     body {
@@ -87,27 +88,27 @@
   </style>
 </head>
 <body>
-  <div id="title">Snake</div>
+  <div id="title" data-i18n="snakeTitle">Snake</div>
   <div id="game-wrapper">
     <canvas id="game" width="400" height="400"></canvas>
   </div>
-  <div id="score">Score: 0</div>
+  <div id="score" data-i18n="scoreLabel">Score: 0</div>
   <div id="message"></div>
 
   <div id="crash-overlay">
     <div id="crash-popup">
       <div class="titlebar">
         <div class="icon"></div>
-        <div class="title">SnakeGame.exe ne répond plus</div>
+        <div class="title" data-i18n="notResponding">SnakeGame.exe ne répond plus</div>
       </div>
       <div class="content">
-        <p>Ce programme ne répond plus.</p>
+        <p data-i18n="programNotResponding">Ce programme ne répond plus.</p>
       </div>
       <div class="actions">
         <ul>
-          <li><a id="restart">→ Redémarrer</a></li>
-          <li><a id="close">→ Fermer</a></li>
-          <li><a id="wait">→ Attendre</a></li>
+          <li><a id="restart" data-i18n="restart">→ Redémarrer</a></li>
+          <li><a id="close" data-i18n="close">→ Fermer</a></li>
+          <li><a id="wait" data-i18n="wait">→ Attendre</a></li>
         </ul>
       </div>
     </div>

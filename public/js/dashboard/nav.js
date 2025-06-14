@@ -1,4 +1,5 @@
 // nav.js
+
 import { wallet } from './constants.js';
 
 // on attend le DOM
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // autres boutons
+
   document.getElementById('trade').addEventListener('click', () => {
     window.location.href = 'trade.html';
   });

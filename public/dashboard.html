@@ -13,16 +13,17 @@
   <link rel="stylesheet" href="/css/chat.css">
   <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.35.3" crossorigin="anonymous"></script>
   <script type="module" src="/js/UX/toast.js" defer></script>
+  <script src="/js/utils/i18n.js" defer></script>
 </head>
 <body>
   <div class="wallet-wrapper">
     <header class="wallet" id="wallet">
-      <span class="wallet-company">Entreprise : <span id="company-text"></span></span>
+      <span class="wallet-company" data-i18n="company">Entreprise : <span id="company-text"></span></span>
       <div class="wallet-balance" id="balance-text">
         <span id="blackTrigger" class="black-emoji">💰</span>
         <span id="balance-value">0 ClickCoins</span>
-      </div>      
-      <span class="wallet-country">Pays : <span id="country-text"></span></span>
+      </div>
+      <span class="wallet-country" data-i18n="country">Pays : <span id="country-text"></span></span>
     </header>
   </div>
   <div class="container">
@@ -31,13 +32,13 @@
      SECTION : Classements (avec onglets)
 ============================================== -->
 <section class="card classtab-card" style="opacity:0; animation: fadeIn 0.4s ease forwards; animation-delay: 0.1s;" data-delay="0.1s">
-  <h2>Classements</h2>
+  <h2 data-i18n="leaderboards">Classements</h2>
 
   <!-- 1) Barre d’onglets -->
   <div class="tabs">
-    <button class="tab-btn active" data-tab="players">Joueurs</button>
-    <button class="tab-btn" data-tab="companies">Entreprises</button>
-    <button class="tab-btn" data-tab="countries">Pays</button>
+    <button class="tab-btn active" data-tab="players" data-i18n="players">Joueurs</button>
+    <button class="tab-btn" data-tab="companies" data-i18n="companies">Entreprises</button>
+    <button class="tab-btn" data-tab="countries" data-i18n="countries">Pays</button>
   </div>
 
   <!-- 2) Contenus des onglets -->
@@ -74,11 +75,11 @@
      SECTION : Pays (carousel de “cartes d’identité”)
 ============================================== -->
 <section class="card country-carousel" style="opacity:0; animation: fadeIn 0.4s ease forwards; animation-delay: 0.2s;" data-delay="0.2s">
-  <h2>Pays</h2>
+  <h2 data-i18n="countries">Pays</h2>
 
   <div class="carousel-container">
     <!-- Flèche “précédent” -->
-    <button class="carousel-btn prev" aria-label="Précédent">
+    <button class="carousel-btn prev" aria-label="Précédent" data-i18n="prev">
       &lt;
     </button>
 
@@ -100,7 +101,7 @@
     </div>
 
     <!-- Flèche “suivant” -->
-    <button class="carousel-btn next" aria-label="Suivant">
+    <button class="carousel-btn next" aria-label="Suivant" data-i18n="next">
       &gt;
     </button>
   </div>
@@ -108,7 +109,7 @@
 
 
     <section class="card companies-card" style="opacity:0; animation: fadeIn 0.4s ease forwards; animation-delay: 0.3s;" data-delay="0.3s"> 
-      <h2>Entreprises</h2>
+      <h2 data-i18n="companies">Entreprises</h2>
       <ul id="companies-list" class="list"> 
         <li>
           <div class="skeleton" style="width: 70%;"></div>
@@ -120,14 +121,14 @@
           <div class="skeleton" style="width: 65%;"></div>
         </li>
       </ul>
-      <button id="create-company-btn" class="btn">Créer une entreprise</button>
+      <button id="create-company-btn" class="btn" data-i18n="createCompany">Créer une entreprise</button>
     </section>
 
     <!-- Graphique en chandelles ClickCoin -->
     <section class="card chart-card" style="opacity:0; animation: fadeIn 0.4s ease forwards; animation-delay: 0.4s;" data-delay="0.4s">
-      <h2>Cours du ClickCoin</h2>
+      <h2 data-i18n="clickcoinCourse">Cours du ClickCoin</h2>
       <div id="clickcoin-chart"></div>
-      <button class="btn" id="trade" style="margin-top: 15px;">Commencer à trader</button>
+      <button class="btn" id="trade" style="margin-top: 15px;" data-i18n="startTrade">Commencer à trader</button>
     </section>
   </div>
 </div>
