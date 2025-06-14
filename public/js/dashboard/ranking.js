@@ -57,7 +57,7 @@ export function loadRankings() {
 
             // avatar
             const img = document.createElement('img');
-            img.src              = p.avatar_url || '/avatars/1.png';
+            img.src              = p.avatar_url || '/avatars/default.png';
             img.alt              = `Avatar de ${p.name}`;
             img.classList.add('avatar');
             img.style.width      = '20px';

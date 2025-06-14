@@ -13,7 +13,9 @@
         document.getElementById('user-balance').textContent = `💰 ${balance} CC`;
         document.getElementById('user-country').textContent = country;
         document.getElementById('user-company').textContent = company;
-        if (avatar_url) document.getElementById('avatar-preview').src = avatar_url;
+        if (avatar_url) {
+          document.getElementById('avatar-preview').src = `${avatar_url}?v=${Date.now()}`;
+        }
       });
 
     // Upload avatar
@@ -28,7 +30,7 @@
         const res = await csrfFetch('/api/user/avatar', { method: 'POST', body: formData });
         if (!res.ok) throw new Error();
         const { avatarUrl } = await res.json();
-        document.getElementById('avatar-preview').src = avatarUrl;
+        document.getElementById('avatar-preview').src = `${avatarUrl}?v=${Date.now()}`;
         alert('Avatar mis à jour !');
       } catch {
         alert('Erreur lors de l\'upload');
