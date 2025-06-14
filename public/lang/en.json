@@ -1,0 +1,16 @@
+{
+  "login": "Login",
+  "signup": "Sign up",
+  "dashboard": "Dashboard",
+  "profile": "Profile",
+  "logout": "Logout",
+  "joinTitle": "Join us!",
+  "joinInfo": "Log in to unlock all features!",
+  "joinBtn": "Log in",
+  "snake": "Snake",
+  "colorGame": "Color Game",
+  "pong": "Pong",
+  "rank": "Rank",
+  "optionFr": "French",
+  "optionEn": "English"
+}

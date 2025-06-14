@@ -117,4 +117,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     const link = card.dataset.link;
     if (link) card.addEventListener('click', () => window.location.href = link);
   });
+  if (window.i18n) window.i18n.apply();
 });
