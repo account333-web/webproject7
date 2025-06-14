@@ -61,30 +61,37 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Carousel pour la section "Pays"
   document.addEventListener('DOMContentLoaded', function() {
     // 1) Récupération des éléments
-    const prevBtn   = document.querySelector('.country-carousel .carousel-btn.prev');
-    const nextBtn   = document.querySelector('.country-carousel .carousel-btn.next');
-    const track     = document.getElementById('country-track');
-    let items       = Array.from(track.querySelectorAll('.carousel-item'));
+    const prevBtn = document.querySelector('.country-carousel .carousel-btn.prev');
+    const nextBtn = document.querySelector('.country-carousel .carousel-btn.next');
+    const track   = document.getElementById('country-track');
+    let items     = Array.from(track.querySelectorAll('.carousel-item'));
 
     // 2) Index courant
     let currentIndex = 0;
 
     // 3) Fonction pour mettre à jour l'état des boutons
     function updateButtons() {
-      prevBtn.disabled = (currentIndex === 0);
-      nextBtn.disabled = (currentIndex === items.length - 1);
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === items.length - 1 || items.length === 0;
     }
 
-    // 4) Fonction pour déplacer la piste vers un nouvel index
+    // 4) Rafraîchir la liste des éléments après chargement dynamique
+    function refreshItems() {
+      items = Array.from(track.querySelectorAll('.carousel-item'));
+      currentIndex = 0;
+      track.style.transform = 'translateX(0)';
+      updateButtons();
+    }
+
+    // 5) Fonction pour déplacer la piste vers un nouvel index
     function moveToIndex(newIndex) {
-      // On calcule la translation en pourcentage (−100% × index)
       const offsetPercentage = newIndex * 100;
       track.style.transform = `translateX(-${offsetPercentage}%)`;
       currentIndex = newIndex;
       updateButtons();
     }
 
-    // 5) Écouteurs de clic pour les flèches
+    // 6) Écouteurs de clic pour les flèches
     prevBtn.addEventListener('click', () => {
       if (currentIndex > 0) {
         moveToIndex(currentIndex - 1);
@@ -96,10 +103,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
 
-    // 6) (Optionnel) : si tu veux remettre à jour 'items' au cas où tu peupleras dynamiquement :
-    //     items = Array.from(track.querySelectorAll('.carousel-item'));
-    //     updateButtons();
+    // 7) Mettre à jour quand la liste des pays est chargée
+    document.addEventListener('countriesUpdated', refreshItems);
 
-    // 7) Initialisation
-    updateButtons();
+    // 8) Initialisation
+    refreshItems();
   });

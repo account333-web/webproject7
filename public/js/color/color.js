@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let attemptsCount = 0;
     const MAX_ATTEMPTS = 100; // Limite de sécurité pour éviter les abus
 
+    // Protection anti triche
+    let lastKeyTime = 0;
+    let rapidTypeCount = 0;
+    let lastColorTime = 0;
+
     // Génère une couleur hexadécimale aléatoire
     function generateRandomColor() {
         const letters = '0123456789ABCDEF';
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTargetColor = generateRandomColor();
             targetColor.style.backgroundColor = currentTargetColor;
             targetHex.textContent = '?';
+            lastColorTime = Date.now();
 
             const r = parseInt(currentTargetColor.slice(1, 3), 16);
             const g = parseInt(currentTargetColor.slice(3, 5), 16);
@@ -115,6 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gère la soumission de la couleur
     async function handleSubmit() {
         if (isSubmitting || !canContinuePlaying()) return;
+
+        // anti bot: refuse soumission trop rapide apres affichage de la couleur
+        if (Date.now() - lastColorTime < 300) {
+            alert('Action trop rapide, merci de jouer normalement.');
+            return;
+        }
+
+        if (rapidTypeCount >= 5) {
+            alert('Saisie détectée comme automatisée.');
+            return;
+        }
         
         try {
             isSubmitting = true;
@@ -194,6 +211,25 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.value = e.target.value.toUpperCase();
         }, 100);
     });
+
+    hexInput.addEventListener('keydown', (e) => {
+        const now = Date.now();
+        if (lastKeyTime && now - lastKeyTime < 40) {
+            rapidTypeCount++;
+        } else {
+            rapidTypeCount = 0;
+        }
+        lastKeyTime = now;
+
+        const allowed = /^[0-9A-Fa-f]$/;
+        if (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === '#') return;
+        if (!allowed.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    hexInput.addEventListener('paste', e => e.preventDefault());
+    hexInput.addEventListener('contextmenu', e => e.preventDefault());
 
     hexInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && !isSubmitting) {
