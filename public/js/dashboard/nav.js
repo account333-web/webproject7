@@ -5,7 +5,7 @@ import { wallet } from './constants.js';
 document.addEventListener('DOMContentLoaded', () => {
   // profil
   wallet.addEventListener('click', () => {
-    window.location.href = 'profile.html';
+    window.location.href = 'menu.html';
   });
 
   // autres boutons
