@@ -1,6 +1,6 @@
     // Navigation buttons
-    document.getElementById('dashboard-btn').addEventListener('click', () => {
-      window.location.href = '/dashboard.html';
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      window.location.href = '/menu.html';
     });
     document.getElementById('logout-btn').addEventListener('click', () => {
       csrfFetch('/logout', { method: 'POST' }).then(() => window.location.href = '/index.html');
